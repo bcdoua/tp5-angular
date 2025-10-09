@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "MesProduit": {
+    "MesAccessoires": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -28,9 +28,9 @@
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": [ "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
-            
           },
           "configurations": {
             "production": {
@@ -60,10 +60,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "MesProduit:build:production"
+              "buildTarget": "MesAccessoires:build:production"
             },
             "development": {
-              "buildTarget": "MesProduit:build:development"
+              "buildTarget": "MesAccessoires:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -88,7 +88,6 @@
             "styles": [
               "src/styles.css"
             ]
-            
           }
         }
       }

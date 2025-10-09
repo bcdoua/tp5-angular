@@ -1,27 +1,27 @@
 <div class="container">
   <div>
-    <h2>Ajouter un Produit :</h2>
+    <h2>Ajouter un Accessoire :</h2>
   </div>
   <form>
     <div class="col-sm-2 col-md-2 col-lg-2">
-      <label>ID Produit</label>
-      <input type="text" [(ngModel)]="newProduit.idProduit" name="idProduit" class="form-control" />
+      <label>ID Accessoire</label>
+      <input type="text" [(ngModel)]="newAccessoire.idAccessoire" name="idAccessoire" class="form-control" />
     </div>
     <div class="col-sm-4 col-md-4 col-lg-4">
-      <label>Nom Produit</label>
+      <label>Nom Accessoire</label>
       <input
         type="text"
-        [(ngModel)]="newProduit.nomProduit"
-        name="nomProduit"
+        [(ngModel)]="newAccessoire.nomAccessoire"
+        name="nomAccessoire"
         class="form-control"
       />
     </div>
     <div class="col-sm-2 col-md-2 col-lg-2">
-      <label>Prix Produit</label>
+      <label>Prix Accessoire</label>
       <input
         type="number"
-        [(ngModel)]="newProduit.prixProduit"
-        name="prixProduit"
+        [(ngModel)]="newAccessoire.prixAccessoire"
+        name="prixAccessoire"
         class="form-control"
       />
     </div>
@@ -29,13 +29,13 @@
       <label>Date création</label>
       <input
         type="date"
-        [(ngModel)]="newProduit.dateCreation"
+        [(ngModel)]="newAccessoire.dateCreation"
         name="dateCreation"
         class="form-control"
       />
     </div>
     <div class="mt-2">
-      <button type="submit" (click)="addProduit()" class="btn btn-success">Ajouter</button>
+      <button type="submit" (click)="addAccessoire()" class="btn btn-success">Ajouter</button>
     </div>
   </form>
 </div>
