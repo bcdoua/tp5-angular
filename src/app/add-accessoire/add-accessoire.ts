@@ -1,25 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Accessoire } from '../model/accessoire.model';
-import { AccessoireService } from '../service/accessoire';
+import { accessoire } from '../model/accessoire.model';
+import { accessoireService } from '../service/accessoire';
+import { couleur } from '../model/couleur.model';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-accessoire',
-  imports: [FormsModule],
-  templateUrl: './add-accessoire.html',
+  standalone: true,
+  imports: [CommonModule,FormsModule],
+  templateUrl: './add-accessoire.html'
 })
-export class AddAccessoire implements OnInit {
-  newAccessoire = new Accessoire();
-  msg!: String;
+export class AddaccessoireComponent implements OnInit {
 
-  constructor(private accessoireService: AccessoireService) {}
+  newaccessoire = new accessoire();
+  message! : string;
+  couleurs! : couleur[];
+  newIdCat! : number;
+  newcouleur! : couleur;
 
-  ngOnInit(): void {}
 
-  addAccessoire(): void {
-    this.accessoireService.addAccessoire(this.newAccessoire);
-    this.msg = "Accessoire " + this.newAccessoire.nomAccessoire + " ajouté avec succès";
-    alert(this.msg);
-    this.newAccessoire = new Accessoire();
+  constructor(private accessoireService: accessoireService,
+              private router :Router
+   ) {}
+
+
+
+  ngOnInit() {
+    this.couleurs = this.accessoireService.listecouleurs();
   }
+
+
+  addaccessoire(){this.newcouleur = this.accessoireService.consultercouleur(this.newIdCat);
+    this.newaccessoire.couleur = this.newcouleur;
+    this.accessoireService.ajouteraccessoire(this.newaccessoire);
+    this.router.navigate(['accessoire']);
+
+  }
+
+
 }

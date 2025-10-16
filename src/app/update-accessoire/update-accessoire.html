@@ -1,27 +1,40 @@
 <div class="container">
-    <div>
-        <h2>Modifier un Accessoire :</h2>
+  <div>
+      <h2>Modifier un accessoire :</h2>
+  </div>
+  <form>
+      <div hidden class="col-sm-2 col-md-2 col-lg-2">
+          <label>ID accessoire</label>
+          <input type="text" [(ngModel)]="currentaccessoire.idaccessoire" name="idaccessoire" class="form-control">
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+          <label>Nom accessoire</label>
+          <input type="text" [(ngModel)]="currentaccessoire.nomaccessoire" name="nomaccessoire" class="form-control">
+      </div>
+      <div class="col-sm-2 col-md-2 col-lg-2">
+          <label>Prix accessoire</label>
+          <input type="text" [(ngModel)]="currentaccessoire.prixaccessoire" name="prixaccessoire" class="form-control">
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+          <label>Date création</label>
+          <input type="date" [ngModel]="currentaccessoire.dateCreation | date :'yyyy-MM-dd'"
+              (ngModelChange)=" currentaccessoire.dateCreation= $event" name="dateCreation" class="form-control">
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>couleur</label>
+      <select
+        class="form-control form-control-lg"
+        id="idCat"
+        name="idCat"
+        [(ngModel)]="updatedCatId"
+      >
+        @for(cat of couleurs; track cat.idCat) {
+        <option [value]="cat.idCat">{{ cat.nomCat }}</option>
+        }
+      </select>
     </div>
-    <form>
-        <div hidden class="col-sm-2 col-md-2 col-lg-2">
-            <label>ID Accessoire</label>
-            <input type="text" [(ngModel)]="currentAccessoire.idAccessoire" name="idAccessoire" class="form-control">
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <label>Nom Accessoire</label>
-            <input type="text" [(ngModel)]="currentAccessoire.nomAccessoire" name="nomAccessoire" class="form-control">
-        </div>
-        <div class="col-sm-2 col-md-2 col-lg-2">
-            <label>Prix Accessoire</label>
-            <input type="number" [(ngModel)]="currentAccessoire.prixAccessoire" name="prixAccessoire" class="form-control">
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <label>Date création</label>
-            <input type="date" [ngModel]="currentAccessoire.dateCreation | date :'yyyy-MM-dd'"
-                (ngModelChange)=" currentAccessoire.dateCreation = $event" name="dateCreation" class="form-control">
-        </div>
-        <div class="mt-2">
-            <button type="submit" (click)="updateAccessoire()" class="btn btn-success">Modifier</button>
-        </div>
-    </form>
+      <div class="mt-2">
+          <button type="submit" (click)="updateaccessoire()" class="btn btn-success">Modifer</button>
+      </div>
+  </form>
 </div>

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        @if (accessoires.length!=0) {
+        <thead>
+          <tr>
+            <th>index</th>
+            <th>idaccessoire</th>
+            <th>nomaccessoire</th>
+            <th>prixaccessoire</th>
+            <th>dateCreation</th>
+            <th>couleur</th>
+          </tr>
+        </thead>
+        } @for (accessoire of accessoires; track accessoire.idaccessoire; let index=$index;let
+        nbr=$count;let first=$first;let last=$last) {
+        <tbody>
+          <tr>
+            <td>{{ index + 1 }}</td>
+            <td>{{ accessoire.idaccessoire }}</td>
+            <td>{{ accessoire.nomaccessoire }}</td>
+            <td>{{ accessoire.prixaccessoire }}</td>
+            <td>{{ accessoire.dateCreation | date : 'dd/MM/yyyy' }}</td>
+            <td>{{accessoire.couleur.nomCat }}</td>
+            <td><a class="btn btn-danger" (click)="supprimeraccessoire(accessoire)">Supprimer</a></td>
+            <td>
+              <a class="btn btn-success" [routerLink]="['/update-accessoire', accessoire.idaccessoire]"
+                >Modifier</a
+              >
+            </td>
+          </tr>
+        </tbody>
+        @if (last) {
+        <h1>Nombre : {{ nbr }}</h1>
+        } } @empty {
+        <h1>Aucune accessoire touvé</h1>
+        }
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,58 +1,100 @@
 import { Injectable } from '@angular/core';
-import { Produit } from '../model/accessoire.model';
-
+import { accessoire } from '../model/accessoire.model';
+import { couleur } from '../model/couleur.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class ProduitService {
-   produits: Produit[];
+export class accessoireService {
+  accessoires:accessoire[]; //un tableau de accessoire
+  accessoire!:accessoire;
+  couleurs: couleur[];
+
   constructor() {
-    this.produits = [
+    this.couleurs = [
+      { idCat: 1, nomCat: 'Argent' },
+      { idCat: 2, nomCat: 'Doré' },
+    ];
+
+    this.accessoires = [
       {
-        idProduit: 1,
-        nomProduit: 'PC Asus',
-        prixProduit: 3000.6,
-        dateCreation: new Date('01/14/2011'),
+        idaccessoire: 1,
+        nomaccessoire: 'Collier',
+        prixaccessoire: '50Dt',
+        dateCreation: new Date('05/07/2025'),
+        couleur: { idCat: 1, nomCat: 'Argent' },
       },
       {
-        idProduit: 2,
-        nomProduit: 'Imprimante Epson',
-        prixProduit: 450,
-        dateCreation: new Date('12/17/2010'),
+        idaccessoire: 2,
+        nomaccessoire: 'Bague',
+        prixaccessoire: '40Dt',
+        dateCreation: new Date('08/08/2024'),
+        couleur: { idCat: 2, nomCat: 'Doré' },
       },
       {
-        idProduit: 3,
-        nomProduit: 'Tablette Samsung',
-        prixProduit: 900.123,
-        dateCreation: new Date('02/20/2020'),
+        idaccessoire: 3,
+        nomaccessoire: 'bracelet',
+        prixaccessoire: '45Dt',
+        dateCreation: new Date('08/06/2025'),
+        couleur: { idCat: 1, nomCat: 'Argent' },
       },
     ];
   }
-  listProduit() : Produit[]{
-    return this.produits;
-  }
-  addProduit(nwProduit : Produit): void{
-    this.produits.push(nwProduit);
-  }
-  supprimerProduit(produit : Produit) : void{
-  let conf=confirm("vous etes sur ?");
-  if (conf) {
-    const index=this.produits.indexOf(produit);
-  if (index>-1) {
-    this.produits.splice(index,1);
-  }
-  }
- }
- consulterProduit(id:number): Produit{
-  return this.produits.find(p => p.idProduit == id)!;
 
-}
-updateProduit(prod: Produit){
- const index = this.produits.indexOf(prod, 0);
- if (index > -1) {
-    this.produits.splice(index, 1);
-    this.produits.splice(index,0,prod);
+  listeaccessoires(): accessoire[] {
+    return this.accessoires;
   }
- }
+
+  ajouteraccessoire(vete: accessoire) {
+    this.accessoires.push(vete);
+  }
+
+  supprimeraccessoire(vete: accessoire) {
+    //supprimer le accessoire vete du tableau accessoires
+    const index = this.accessoires.indexOf(vete, 0);
+    if (index > -1) {
+      this.accessoires.splice(index, 1);
+    }
+    //ou Bien
+    /*  this.accessoires.forEach((cur, index) => {
+          if(vete.idaccessoire === cur.idaccessoire) {
+                this.accessoires.splice(index, 1);
+             }
+       }); */
+  }
+
+  consulteraccessoire(id: number): accessoire {
+    this.accessoire = this.accessoires.find((p) => p.idaccessoire == id)!;
+    return this.accessoire;
+  }
+
+  trieraccessoires() {
+    this.accessoires = this.accessoires.sort((n1, n2) => {
+      if (n1.idaccessoire! > n2.idaccessoire!) {
+        return 1;
+      }
+      if (n1.idaccessoire! < n2.idaccessoire!) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
+  updateaccessoire(v:accessoire) {
+    // console.log(p);
+    this.supprimeraccessoire(v);
+    this.ajouteraccessoire(v);
+    this.trieraccessoires();
+  }
+
+
+  listecouleurs():couleur[] {
+    return this.couleurs;
+  }
+
+consultercouleur(id:number): couleur{
+        return this.couleurs.find(cat => cat.idCat  == id)!;
+         }
+
+
 }
