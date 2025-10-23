@@ -1,11 +1,9 @@
-import { couleur } from "./couleur.model";
+import { Couleur } from "./couleur.model";
 
-export class accessoire {
-    idaccessoire! : number;
-    nomaccessoire! : string;
-    prixaccessoire! : string;
-    dateCreation! : Date ;
-    couleur! : couleur;
-
-
+export class Accessoire {
+    idaccessoire!: number;
+    nomaccessoire!: string;
+    prixaccessoire!: number;
+    dateCreation!: Date;
+    couleur!: Couleur;  
 }

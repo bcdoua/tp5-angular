@@ -1,0 +1,64 @@
+/* Conteneur principal */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 15px;
+  border: 3px solid #aa5b82;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Titre */
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Sélecteur de couleur */
+select {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Liste d'accessoires */
+.accessoire-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.accessoire-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.accessoire-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Bouton supprimer */
+button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e74c3c;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #c0392b;
+}

@@ -1,4 +1,4 @@
-export class couleur {
-    idCat! : number; // ou idCat? : number;
-    nomCat! : string;
+export class Couleur {
+  idCoul!: number;
+  nomCoul!: string; 
 }

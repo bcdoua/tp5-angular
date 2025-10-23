@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4"> <label>Couleur </label> 
+        <select
+            class="form-control form-control-lg" id="Idcouleur" name="Idcouleur" [(ngModel)]= "Idcouleur"
+            (change)="onChange()"> @for(cat of couleurs;track cat.idCoul) { <option value="{{cat.idCoul}}">
+                {{cat.nomCoul}} </option> } </select> </div>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table>
+                @if(accessoires.length>0){
+                <tr>
+                    <th>N:</th>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Couleur</th>
+                    <th>Prix</th>
+                </tr>
+                }
+                @for (accessoire of accessoires; track accessoire.idaccessoire ;let index=$index) {
+                <tbody>
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{accessoire.idaccessoire}}</td>
+                        <td>{{accessoire.nomaccessoire}}</td>
+                        <td>{{accessoire.dateCreation | date :'dd/MM/yyyy'}}</td>
+                        <td>{{accessoire.couleur.nomCoul}}</td>
+                        <td>{{accessoire.prixaccessoire}}</td>
+                        
+                        <td><a class="btn btn-danger" (click)="supprimeraccessoire(accessoire)">Supprimer</a></td>
+                        <td><a class="btn btn-success"
+                                [routerLink]="['/updateaccessoire',accessoire.idaccessoire]">Modifier</a></td>
+                    </tr>
+                </tbody> }
+                @empty { <h1>Aucun accessoire trouvé !</h1> }
+            </table>
+        </div>
+    </div>
+</div>

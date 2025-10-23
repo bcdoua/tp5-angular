@@ -21,15 +21,15 @@
               (ngModelChange)=" currentaccessoire.dateCreation= $event" name="dateCreation" class="form-control">
       </div>
       <div class="col-sm-4 col-md-4 col-lg-4">
-      <label>couleur</label>
+      <label>Couleur</label>
       <select
         class="form-control form-control-lg"
-        id="idCat"
-        name="idCat"
+        id="idCoul"
+        name="idCoul"
         [(ngModel)]="updatedCatId"
       >
-        @for(cat of couleurs; track cat.idCat) {
-        <option [value]="cat.idCat">{{ cat.nomCat }}</option>
+        @for(cat of couleurs; track cat.idCoul) {
+        <option [value]="cat.idCoul">{{ cat.nomCoul }}</option>
         }
       </select>
     </div>

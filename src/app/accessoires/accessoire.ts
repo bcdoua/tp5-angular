@@ -1,26 +1,31 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { accessoire } from '../model/accessoire.model';
-import { accessoireService } from '../service/accessoire';
+import { FormsModule } from '@angular/forms';
+import { Accessoire } from '../model/accessoire.model';
+import { AccessoireService } from '../service/accessoire';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-accessoire',
-  standalone: true,
+  selector: 'app-Accessoires',
   imports: [CommonModule,RouterLink],
-  templateUrl: './accessoire.html',
-  styles: ``
+  templateUrl:'./accessoire.html',
 })
-export class accessoireComponent implements OnInit {
-  accessoires! : accessoire[];
-  constructor(private accessoireService : accessoireService){
-    this.accessoires=accessoireService.listeaccessoires()
+export class AccessoiresComponent implements OnInit { 
+  Accessoires : Accessoire []=[]; 
+
+
+  constructor(private AccessoireService: AccessoireService )
+   { this.Accessoires = AccessoireService.listeaccessoires(); }
+
+  supprimerAccessoire(event: Accessoire) { 
+    //console.log(p);
+    let conf = confirm("Etes-vous sûr ?");
+     if (conf)
+   this.AccessoireService.supprimeraccessoire(event); }
+
+
+
+  ngOnInit(): void {
+
   }
- ngOnInit(): void{
-   
- }
- supprimeraccessoire(accessoire : accessoire) : void{
-  this.accessoireService.supprimeraccessoire(accessoire);
- }
- 
 }

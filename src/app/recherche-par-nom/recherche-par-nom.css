@@ -1,0 +1,67 @@
+/* Conteneur principal */
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 15px;
+  font-family: Arial, sans-serif;
+}
+
+/* Formulaire de recherche */
+.form-inline {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.form-control {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 3px solid #aa5b82;
+}
+
+/* Carte contenant le tableau */
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border: 3px solid #aa5b82;;
+}
+
+.card-body {
+  padding: 15px;
+  background-color: #fff;
+}
+
+/* Tableau */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+tr:hover {
+  background-color: #f0f8ff;
+}
+
+/* Message “Aucun produit trouvé” */
+h1 {
+  text-align: center;
+  color: #888;
+  margin-top: 20px;
+}
