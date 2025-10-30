@@ -1,37 +1,58 @@
 <div class="container">
-    <form class="form-inline">
-        <div class="form-group mx-sm-3 mb-2 mt-2 ">
-            <label>Recherche accessoire</label>
-            <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control">
-        </div>
-    </form>
-
-    <div class="card shadow mb-4">
-        <div class="card-body">
-            <table>
-                @if(accessoires.length>0){
-                <tr>
-                    <th>N:</th>
-                    <th>Id</th>
-                    <th>Nom</th>
-                    <th>Couleur</th>
-                    <th>Prix</th>
-                </tr>
-                }
-                @for (accessoire of accessoires | searchFilter: searchTerm; track accessoire.idaccessoire ;let index=$index) {
-                <tbody>
-                    <tr>
-                        <td>{{$index+1}}</td>
-                        <td>{{accessoire.idaccessoire}}</td>
-                        <td>{{accessoire.nomaccessoire}}</td>
-                        <td>{{accessoire.dateaccessoire | date:'dd/MM/yyyy'}}</td>
-                        <td>{{accessoire.couleur.nomcouleur}}</td>
-                        <td>{{accessoire.prixaccessoire}}</td>
-                        
-                    </tr>
-                </tbody> }
-                @empty { <h1>Aucun produit trouvé !</h1> }
-            </table>
-        </div>
+  <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-2">
+      <label>Nom accessoire en tapant</label>
+      <input
+        class="form-control"
+        #searchTerm
+        (keyup)="onKeyUp(searchTerm.value)"
+        placeholder="Chercher un accessoire..."
+      />
     </div>
+  </form>
+
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <!-- Vérifie si accessoires existe -->
+      <table class="table table-striped" *ngIf="accessoires.length > 0; else aucunAccessoire">
+        <thead>
+          <tr>
+            <th>index</th>
+            <th>idaccessoire</th>
+            <th>nomaccessoire</th>
+            <th>prixaccessoire</th>
+            <th>dateCreation</th>
+            <th>couleur</th>
+            <th>email</th>
+            <th>actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let accessoire of accessoires; let index = index; let last = last">
+            <td>{{ index + 1 }}</td>
+            <td>{{ accessoire.idaccessoire }}</td>
+            <td>{{ accessoire.nomaccessoire }}</td>
+            <td>{{ accessoire.prixaccessoire }}</td>
+            <td>{{ accessoire.dateCreation | date:'dd/MM/yyyy' }}</td>
+            <td>{{ accessoire.couleur.nomCoul }}</td>
+            <td>{{ accessoire.email }}</td>
+            <td>
+              <a class="btn btn-danger" (click)="supprimeraccessoire(accessoire)">Supprimer</a>
+              <a class="btn btn-success" [routerLink]="['/update-accessoire', accessoire.idaccessoire]">Modifier</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Message si aucun accessoire trouvé -->
+      <ng-template #aucunAccessoire>
+        <h1>Aucun accessoire trouvé !</h1>
+      </ng-template>
+
+      <!-- Optionnel : afficher le nombre d'accessoires -->
+      <div *ngIf="accessoires.length > 0">
+        <h1>Nombre : {{ accessoires.length }}</h1>
+      </div>
+    </div>
+  </div>
 </div>

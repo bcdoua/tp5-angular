@@ -1,67 +1,94 @@
-/* Conteneur principal */
+/* Container */
 .container {
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 15px;
-  font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 30px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1c69b6; /* Couleur texte principale */
 }
 
-/* Formulaire de recherche */
-.form-inline {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 20px;
+/* Formulaire */
+form.form-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
 }
 
-.form-group label {
-  margin-right: 10px;
-  font-weight: bold;
+.form-group label { 
+    font-weight: 700;
+    color: #2c639b; /* Couleur label */
 }
 
 .form-control {
-  padding: 6px 10px;
-  border-radius: 5px;
-  border: 3px solid #aa5b82;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #bdc3c7;
+    transition: all 0.3s ease;
+    background-color: #ebcbcb;
 }
 
-/* Carte contenant le tableau */
+.form-control:focus {
+    border-color: #24f0f0; /* Couleur focus */
+    box-shadow: 0 0 8px rgba(26, 188, 156, 0.3);
+    outline: none;
+}
+
+/* Carte */
 .card {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  border: 3px solid #aa5b82;;
+    border-radius: 14px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
 }
 
 .card-body {
-  padding: 15px;
-  background-color: #fff;
+    padding: 30px;
 }
 
 /* Tableau */
 table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 th, td {
-  padding: 10px 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+    padding: 14px 18px;
+    text-align: left;
 }
 
-th {
-  background-color: #f4f4f4;
-  font-weight: bold;
+th:hover {
+    background-color: #30eec5; /* Couleur hover */
+    transition: background-color 0.3s ease;
+    box-shadow:5px 5px 5px 5px #09eebc;
+    
+    font-weight: 600;
+    
+}
+
+tr:nth-child(even) {
+    background-color: #85d4e8; /* Couleur ligne paire */
 }
 
 tr:hover {
-  background-color: #f0f8ff;
+    background-color: #30eec5; /* Couleur hover */
+    transition: background-color 0.3s ease;
+    box-shadow:5px 5px 5px 5px #09eebc;
 }
 
-/* Message “Aucun produit trouvé” */
+/* Message vide */
 h1 {
-  text-align: center;
-  color: #888;
-  margin-top: 20px;
+    text-align: center;
+    color: #95a5a6; /* Couleur du message */
+    margin-top: 40px;
+    font-size: 1.6rem;
+    font-weight: 500;
 }

@@ -22,6 +22,7 @@ export class AccessoireService {
         nomaccessoire: 'Collier',
         prixaccessoire: 50,
         dateCreation: new Date('05/07/2025'),
+        email: 'collier@example.com', // ajouté
         couleur: { idCoul: 1, nomCoul: 'Argent' },
       },
       {
@@ -29,6 +30,7 @@ export class AccessoireService {
         nomaccessoire: 'Bague',
         prixaccessoire: 40,
         dateCreation: new Date('08/08/2024'),
+        email: 'bague@example.com', // ajouté
         couleur: { idCoul: 2, nomCoul: 'Doré' },
       },
       {
@@ -36,6 +38,7 @@ export class AccessoireService {
         nomaccessoire: 'bracelet',
         prixaccessoire: 45,
         dateCreation: new Date('08/06/2025'),
+        email: 'bracelet@example.com', // ajouté
         couleur: { idCoul: 1, nomCoul: 'Argent' },
       },
     ];

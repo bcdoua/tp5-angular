@@ -3,22 +3,49 @@
       <h2>Modifier un accessoire :</h2>
   </div>
   <form>
+     <form #f="ngForm" (ngSubmit)="updateaccessoire()" novalidate></form>
       <div hidden class="col-sm-2 col-md-2 col-lg-2">
           <label>ID accessoire</label>
-          <input type="text" [(ngModel)]="currentaccessoire.idaccessoire" name="idaccessoire" class="form-control">
+          <input 
+          type="text" 
+          [(ngModel)]="currentaccessoire.idaccessoire" 
+          name="idaccessoire" 
+          class="form-control"
+          required
+          />
       </div>
       <div class="col-sm-4 col-md-4 col-lg-4">
           <label>Nom accessoire</label>
-          <input type="text" [(ngModel)]="currentaccessoire.nomaccessoire" name="nomaccessoire" class="form-control">
+          <input 
+          type="text" 
+          [(ngModel)]="currentaccessoire.nomaccessoire" 
+          name="nomaccessoire"
+          class="form-control"
+          required
+          minlength="3"
+      />
       </div>
-      <div class="col-sm-2 col-md-2 col-lg-2">
+      <div class="col-sm-4 col-md-4 col-lg-4">
           <label>Prix accessoire</label>
-          <input type="text" [(ngModel)]="currentaccessoire.prixaccessoire" name="prixaccessoire" class="form-control">
+          <input 
+          type="text"
+          [(ngModel)]="currentaccessoire.prixaccessoire" 
+          name="prixaccessoire" 
+          class="form-control"
+          required
+          min="1"
+          />
       </div>
       <div class="col-sm-4 col-md-4 col-lg-4">
           <label>Date création</label>
-          <input type="date" [ngModel]="currentaccessoire.dateCreation | date :'yyyy-MM-dd'"
-              (ngModelChange)=" currentaccessoire.dateCreation= $event" name="dateCreation" class="form-control">
+          <input 
+          type="date" 
+          [ngModel]="currentaccessoire.dateCreation | date :'yyyy-MM-dd'"
+          (ngModelChange)=" currentaccessoire.dateCreation= $event" 
+          name="dateCreation" 
+          class="form-control"
+          required
+          />
       </div>
       <div class="col-sm-4 col-md-4 col-lg-4">
       <label>Couleur</label>
@@ -27,14 +54,26 @@
         id="idCoul"
         name="idCoul"
         [(ngModel)]="updatedCatId"
+        required
       >
         @for(cat of couleurs; track cat.idCoul) {
         <option [value]="cat.idCoul">{{ cat.nomCoul }}</option>
         }
       </select>
     </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Email</label>
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="currentaccessoire.email"
+        class="form-control"
+        required
+        email
+      />
+    </div>
       <div class="mt-2">
-          <button type="submit" (click)="updateaccessoire()" class="btn btn-success">Modifer</button>
+          <button type="submit" [disabled]="!f.valid" class="btn btn-success">Modifier</button>
       </div>
   </form>
 </div>

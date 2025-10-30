@@ -11,6 +11,8 @@
             <th>Prixaccessoire</th>
             <th>DateCreation</th>
             <th>Couleur</th>
+            <th>Email de l'ajouteur</th>
+            <th>Actions</th>
           </tr>
         </thead>
         } @for (accessoire of Accessoires; track accessoire.idaccessoire; let index=$index;let
@@ -23,6 +25,7 @@
             <td>{{ accessoire.prixaccessoire }}</td>
             <td>{{ accessoire.dateCreation | date : 'dd/MM/yyyy' }}</td>
             <td>{{accessoire.couleur.nomCoul }}</td>
+            <td>{{accessoire.email }}</td>
             <td><a class="btn btn-danger" (click)="supprimerAccessoire(accessoire)">Supprimer</a></td>
             <td>
               <a class="btn btn-success" [routerLink]="['/update-accessoire', accessoire.idaccessoire]"

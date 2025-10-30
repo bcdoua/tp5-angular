@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { Accessoire } from '../model/accessoire.model';
 import { AccessoireService } from '../service/accessoire';
 import { RouterLink } from '@angular/router';
@@ -17,15 +16,18 @@ export class AccessoiresComponent implements OnInit {
   constructor(private AccessoireService: AccessoireService )
    { this.Accessoires = AccessoireService.listeaccessoires(); }
 
-  supprimerAccessoire(event: Accessoire) { 
+  supprimerAccessoire(acc: Accessoire) { 
     //console.log(p);
     let conf = confirm("Etes-vous sûr ?");
      if (conf)
-   this.AccessoireService.supprimeraccessoire(event); }
+   this.AccessoireService.supprimeraccessoire(acc); }
 
 
 
   ngOnInit(): void {
 
   }
+  supprimeraccessoire(accessoire : Accessoire) : void{
+  this.AccessoireService.supprimeraccessoire(accessoire);
+ }
 }

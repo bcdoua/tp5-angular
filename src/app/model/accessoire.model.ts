@@ -6,4 +6,5 @@ export class Accessoire {
     prixaccessoire!: number;
     dateCreation!: Date;
     couleur!: Couleur;  
+    email!: string; 
 }
